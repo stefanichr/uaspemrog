@@ -13,6 +13,7 @@ import HooksComp from './Component/Hooks/Functional/HooksComp';
 import HooksUseEffects from './Component/Hooks/Functional/HooksUseEffects';
 import Catalog from './Component/Class/Catalog';
 import LoginComp from './Component/Fungsional/LoginComp';
+import DaftarComp from './Component/Fungsional/DaftarComp';
 // import { BrowserRouter, Switch } from 'react-router-dom';
 // import Homepage from './Component/Fungsional/Homepage';
 // import Parent from './Component/Class/CSS/Parent';
@@ -30,6 +31,7 @@ const App = () => {
       <Route exact path="/about" component={About}/>
       <Route exact path="/produk" component={Catalog}/>
       <Route exact path="/login" component={LoginComp}/>
+      <Route exact path="/daftar" component={DaftarComp}/>
       {/* <Route exact path="/detail/:id" component={DetailComp}/> */}
     </Switch>
     </BrowserRouter>

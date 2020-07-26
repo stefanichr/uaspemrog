@@ -1,5 +1,6 @@
 import { Jumbotron, Button, Carousel, CarouselItem, CarouselControl,CarouselIndicators, CarouselCaption, Container} from 'reactstrap';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const items = [
     {
@@ -72,7 +73,9 @@ const Example = (props) => {
                     <hr className="my-2" />
                     <p>Tersedia katalog Tas Jualan Yuk dengan berbagai model </p>
                     <p className="lead">
-                        <Button color="primary">Daftar Menjadi Member</Button>
+                        <Link to="/daftar"  className="">
+                        Daftar Menjadi Member       
+                            </Link>
                     </p>
         </Jumbotron>
       </Container>
