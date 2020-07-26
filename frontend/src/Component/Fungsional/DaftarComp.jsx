@@ -10,10 +10,11 @@ class DaftarComp extends PureComponent {
         super(props)
 
         this.state = {
-            id_admin: '',
+            namalengkap: '',
             username: '',
             email: '',
             password: '',
+            nomerhp: '',
             response: ''
         }
     }
@@ -22,12 +23,14 @@ class DaftarComp extends PureComponent {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    Addadmin = () => {
-        axios.post(api + '/tambahadmin', {
-            id_admin: this.state.id_admin,
+    Addmember = () => {
+        console.log(api)
+        axios.post(api + '/tambahmember', {
             username: this.state.username,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            namalengkap: this.state.namalengkap,
+            nomerhp: this.state.nomerhp
         }).then(json => {
             if (json.data.status === 200) {
                 this.setState({
@@ -51,14 +54,6 @@ class DaftarComp extends PureComponent {
                 </Alert>
                 <Form className="form">
                     <Col>
-                        <Label>ID Admin</Label>
-                        <FormGroup>
-                            <Row>
-                                <Col>
-                                    <Input type="text" name="id_admin" value={this.state.id_admin} onChange={this.handleChange} placeholder="Masukan ID" />
-                                </Col>
-                            </Row>
-                        </FormGroup>
                         <Label>Username</Label>
                         <FormGroup>
                             <Row>
@@ -83,10 +78,26 @@ class DaftarComp extends PureComponent {
                                 </Col>
                             </Row>
                         </FormGroup>
+                        <Label>Nama Lengkap</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Button type="button" onClick={this.Addadmin}>DAFTAR</Button>
+                                    <Input type="text" name="namalengkap" value={this.state.namalengkap} onChange={this.handleChange} placeholder="Masukan Nama Lengkap" />
+                                </Col>
+                            </Row>
+                        </FormGroup>
+                        <Label>No HP</Label>
+                        <FormGroup>
+                            <Row>
+                                <Col>
+                                    <Input type="text" name="nomerhp" value={this.state.nomerhp} onChange={this.handleChange} placeholder="Masukan Nomor Hp" />
+                                </Col>
+                            </Row>
+                        </FormGroup>
+                        <FormGroup>
+                            <Row>
+                                <Col>
+                                    <Button type="button" onClick={this.Addmember}>DAFTAR</Button>
 
                                     <Button>
                                         <Link to="/" className="btn btn-primary text-left">Masuk</Link>

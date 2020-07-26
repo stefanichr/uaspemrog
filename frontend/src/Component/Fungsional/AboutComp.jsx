@@ -5,7 +5,7 @@ function AboutComp() {
     return (
         <div>
           <Jumbotron style={{backgroundColor: '#FFA500',textAlign:'center'}}>
-                <h1 className="display-3">PROFIL TAS.KU </h1>
+                <h1 className="display-3">PROFIL TAS-KU </h1>
                 <hr className="my-2" />
                 <p>est 2020</p>
             </Jumbotron> 

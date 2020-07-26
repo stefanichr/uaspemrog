@@ -39,14 +39,14 @@ const LoginComp = () => {
                                     <div className="col-md-6 text-left">
 
                                         <button>
-                                            <Link to="/homepage" className="btn btn-primary text-left">Masuk</Link>
+                                            <Link to="/" className="btn btn-primary text-left">Masuk</Link>
                                         </button>
 
                                     </div>
 
                                     <div className="col-md-6 text-right">
                                         <Link to="/daftar" className="">
-                                            Halaman Pendaftaran
+                                            Daftar
                             </Link>
 
                                     </div>

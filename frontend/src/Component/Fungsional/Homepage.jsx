@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 const items = [
     {
       src: 'https://cdn1.productnation.co/stg/sites/5/5d23187676582.jpeg',
-      altText: 'Slide 1',
-      caption: 'Slide 1'
+      altText: 'Tas Wanita',
+      caption: 'Tas Wanita'
     },
     {
-      src: 'https://media.karousell.com/media/photos/products/2018/01/24/tas_karakter_1516803856_0e8f8af7.jpg ',
-      altText: 'Slide 2',
-      caption: 'Slide 2'
+      src: 'https://asianparent-assets-id.dexecure.net/wp-content/uploads/sites/24/2016/08/Sebelum-Membeli-Tas-Sekolah-Anak-Memilih-Tas-Ransel-yang-Tepat-untuk-Anak-1024x576.jpg',
+      altText: 'Tas Anak',
+      caption: 'Tas Anak'
     },
     {
-      src: 'https://cf.shopee.co.id/file/a6cc3e2581a475a03845731bc560cd88',
-      altText: 'Slide 3',
-      caption: 'Slide 3'
+      src: 'https://i2.wp.com/kreativv.com/wp-content/uploads/2019/04/5-Jenis-Tas-Pria.png?resize=1140%2C694&ssl=1',
+      altText: 'Tas Pria',
+      caption: 'Tas Pria'
     },
   ];
   
@@ -68,7 +68,7 @@ const Example = (props) => {
             <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
         </Carousel>
         <Jumbotron>
-                    <h1 className="display-3">Selamat Datang di Tas.ku</h1>
+                    <h1 className="display-3">Selamat Datang di Tas-ku</h1>
                     <p className="lead">Ingin jadi Reseller Tas dari Jualan Yuk dengan omset puluhan juta? Gampang banget hanya dengan daftar jadi member </p>
                     <hr className="my-2" />
                     <p>Tersedia katalog Tas Jualan Yuk dengan berbagai model </p>

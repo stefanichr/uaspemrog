@@ -37,6 +37,8 @@ const NavbarComp = (props) => {
             </NavItem>
           </Nav>
             <NavLink isLogin={isLogin} href="/login">Login</NavLink>
+                <NavLink href="/login"className="nav-link">Logout</NavLink>
+    
 
         </Collapse>
       </Navbar>
