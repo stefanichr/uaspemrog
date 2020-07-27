@@ -11,7 +11,7 @@ class ListComp extends PureComponent {
         super(props)
 
         this.state = {
-            mahasiswa: [],
+            produk: [],
             response:'',
             display:'none'
         }
@@ -20,15 +20,15 @@ class ListComp extends PureComponent {
     componentDidMount(){
         axios.get(api+'/tampil').then(res=>{
           this.setState({
-              mahasiswa: res.data.values
+              produk: res.data.values
           })  
         })
     }
 
-    Deletemahasiswa = (idmahasiswa) => {
-        const {mahasiswa} = this.state
+    Deleteproduk = (idproduk) => {
+        const {produk} = this.state
         const data = qs.stringify({
-            id_mahasiswa: idmahasiswa
+            idproduk: idproduk
         })
 
         axios.delete(api+'/hapus',
@@ -39,52 +39,51 @@ class ListComp extends PureComponent {
             if(json.data.status === 200){
                 this.setState({
                     response: json.data.values,
-                    mahasiswa: mahasiswa.filter(mahasiswa => mahasiswa.id_mahasiswa),
+                    produk: produk.filter(produk => produk.idproduk),
                     display: 'block'
                 })
-                // this.props.history.push('/mahasiswa')
+                // this.props.history.push('/produk')
             }else{
                 this.setState({
                     response: json.data.values,
                     display: 'block'
                 })
             }
-                // this.props.history.push('/mahasiswa')
+                // this.props.history.push('/produk')
         })
         }
     render() {
         return (
             <Container>
-                <h2>Data Mahasiswa</h2>
+                <h2>Data produk</h2>
                 <Alert color="success" style={{display: this.state.display}}>
                     {this.state.response}
                 </Alert>
-                <NavLink href="/mahasiswa/tambah"><Button color="success">Tambah Data</Button></NavLink>
+                <NavLink href="/produk/tambah"><Button color="success">Tambah Data</Button></NavLink>
                 <hr/>
                 <Table className="table-bordered">
                     <thead>
                         <tr>
-                            <th>NIM</th>
-                            <th>Nama</th>
-                            <th>Jurusan</th>
-                            <th>Aksi</th>
+                            <th>Nama Produk</th>
+                            <th>Deskripsi</th>
+                            <th>Stok</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.mahasiswa.map(mahasiswa =>
-                            <tr key ={mahasiswa.id_mahasiswa}>
-                              <td>{mahasiswa.nim}</td>  
-                              <td>{mahasiswa.nama}</td>
-                              <td>{mahasiswa.jurusan} </td>
+                        {this.state.produk.map(produk =>
+                            <tr key ={produk.idproduk}>
+                              <td>{produk.namaproduk}</td>  
+                              <td>{produk.deskripsi}</td>
+                              <td>{produk.stok} </td>
                               <td>
                                   <Link to= {
                                   {
-                                    pathname: `/mahasiswa/edit`,
+                                    pathname: `/produk/edit`,
                                     state: {
-                                        id_mahasiswa: mahasiswa.id_mahasiswa,
-                                        nim: mahasiswa.nim,
-                                        nama: mahasiswa.nama,
-                                        jurusan: mahasiswa.jurusan
+                                        idproduk: produk.idproduk,
+                                        namaproduk: produk.namaproduk,
+                                        deskripsi: produk.deskripsi,
+                                        stok: produk.stok
                                     }
                                   }
                                 }>
@@ -92,7 +91,7 @@ class ListComp extends PureComponent {
                                 
                                 </Link>
                                 <span></span>
-                                    <Button onClick={()=>this.Deletemahasiswa(mahasiswa.id_mahasiswa)}color="danger">Hapus</Button>
+                                    <Button onClick={()=>this.Deleteproduk(produk.idproduk)}color="danger">Hapus</Button>
                               </td>
                             </tr>
                             )}

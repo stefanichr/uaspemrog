@@ -30,6 +30,9 @@ const App = () => {
       <Route exact path="/" component={Homepage}/>
       <Route exact path="/about" component={About}/>
       <Route exact path="/produk" component={Catalog}/>
+      <Route exact path="/produk/tambah" component={TambahComp}/>
+      <Route exact path="/produk/edit" component={EditComp}/>
+      <Route exact path="/barang" component={ListComp}/>
       <Route exact path="/login" component={LoginComp}/>
       <Route exact path="/daftar" component={DaftarComp}/>
       {/* <Route exact path="/detail/:id" component={DetailComp}/> */}

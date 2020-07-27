@@ -10,9 +10,10 @@ class TambahComp extends PureComponent {
         super(props)
 
         this.state = {
-            nim: '',
-            nama: '',
-            jurusan: '',
+            idproduk: '',
+            namaproduk: '',
+            deskripsi: '',
+            stok: '',
             response:'',
             display:'none'
                  
@@ -22,11 +23,12 @@ class TambahComp extends PureComponent {
         this.setState({[e.target.name] : e.target.value})
     }
 
-    Addmahasiswa= () => {
-        axios.post(api+ '/tambah', {
-            nim: this.state.nim,
-            nama: this.state.nama,
-            jurusan: this.state.jurusan
+    Addproduk= () => {
+        axios.post(api+ '/tambahproduk', {
+            idproduk: this.state.idproduk,
+            namaproduk: this.state.namaproduk,
+            deskripsi: this.state.deskripsi,
+            stok: this.state.stok
         }).then(json => {
             if(json.data.status === 200) {
             this.setState({
@@ -52,34 +54,34 @@ class TambahComp extends PureComponent {
                 </Alert>
                 <Form className="form">
                     <Col>
-                    <Label>NIM</Label>
+                    <Label>Nama produk</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="nim" value={this.state.nim} onChange={this.handleChange} placeholder="Masukan NIM"/>
+                            <Input type="text" name="namaproduk"  value={this.state.namaproduk} onChange={this.handleChange} placeholder="Masukan Nama produk"/>
                             </Col>
                         </Row>
                     </FormGroup>
-                    <Label>Nama</Label>
+                    <Label>Deskripsi</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="nama"  value={this.state.nama} onChange={this.handleChange} placeholder="Masukan Nama"/>
+                            <Input type="text" name="deskripsi" value={this.state.deskripsi} onChange={this.handleChange} placeholder="Masukan Deskripsi"/>
                             </Col>
                         </Row>
                     </FormGroup>
-                    <Label>jurusan</Label>
+                    <Label>stok</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="jurusan" value={this.state.jurusan} onChange={this.handleChange} placeholder="Masukan Jurusan"/>
+                            <Input type="text" name="stok" value={this.state.stok} onChange={this.handleChange} placeholder="Masukan Stok"/>
                             </Col>
                         </Row>
                     </FormGroup>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Button type="button" onClick={this.Addmahasiswa}>Submit</Button>
+                            <Button type="button" onClick={this.Addproduk}>Submit</Button>
                             </Col>
                         </Row>
                     </FormGroup>

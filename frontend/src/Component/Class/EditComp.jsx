@@ -11,10 +11,10 @@ class EditComp extends PureComponent {
         super(props)
 
         this.state = {
-            id_mahasiswa: this.props.location.state.id_mahasiswa,
-            nim: this.props.location.state.nim,
-            nama: this.props.location.state.nama,
-            jurusan: this.props.location.state.jurusan,
+            idproduk: this.props.location.state.idproduk,
+            namaproduk: this.props.location.state.namaproduk,
+            deskripsi: this.props.location.state.deskripsi,
+            stok: this.props.location.state.stok,
             response:'',
             display: 'none'
                  
@@ -25,14 +25,16 @@ class EditComp extends PureComponent {
         this.setState({[e.target.name] : e.target.value})
     }
 
-    ubahMahasiswa = () => {
+    ubahproduk = () => {
 
         const data = qs.stringify({
-            id_mahasiswa: this.state.id_mahasiswa,
-            nim: this.state.nim,
-            nama: this.state.nama,
-            jurusan: this.state.jurusan
+            idproduk: this.state.idproduk,
+            namaproduk: this.state.namaproduk,
+            deskripsi: this.state.deskripsi,
+            stok: this.state.stok
         });
+        console.log(this.state)
+
 
         axios.put(api+ '/ubah', data)
         .then(json => {
@@ -59,34 +61,34 @@ class EditComp extends PureComponent {
                 </Alert>
                 <Form className="form">
                     <Col>
-                    <Label>NIM</Label>
+                    <Label>Nama produk</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="nim" value={this.state.nim} onChange={this.handleChange} placeholder="Masukan NIM"/>
+                            <Input type="text" name="namaproduk" value={this.state.namaproduk} onChange={this.handleChange} placeholder="Masukan Nama produk"/>
                             </Col>
                         </Row>
                     </FormGroup>
-                    <Label>Nama</Label>
+                    <Label>Deskripsi produk</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="nama"  value={this.state.nama} onChange={this.handleChange} placeholder="Masukan Nama"/>
+                            <Input type="text" name="deskripsi"  value={this.state.deskripsi} onChange={this.handleChange} placeholder="Masukan deskripsi produk"/>
                             </Col>
                         </Row>
                     </FormGroup>
-                    <Label>jurusan</Label>
+                    <Label>stok</Label>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Input type="text" name="jurusan" value={this.state.jurusan} onChange={this.handleChange} placeholder="Masukan Jurusan"/>
+                            <Input type="text" name="stok" value={this.state.stok} onChange={this.handleChange} placeholder="Masukan Stok"/>
                             </Col>
                         </Row>
                     </FormGroup>
                     <FormGroup>
                         <Row>
                             <Col>
-                            <Button type="button" onClick={()=>this.ubahMahasiswa(this.state.id_mahasiswa)}>Update </Button>
+                            <Button type="button" onClick={()=>this.ubahproduk(this.state.idproduk)}>Update </Button>
                             </Col>
                         </Row>
                     </FormGroup>
